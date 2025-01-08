@@ -27,7 +27,6 @@ def save_data():
     with open(DATA_FILE, 'wb') as f:
         pickle.dump([train_x, train_y], f)
 
-# Function to load the training data
 def load_data():
     '''Function to load the training data from a file'''
     global train_x, train_y
@@ -42,8 +41,7 @@ def submit_data():
     '''
     Function to submit training data.
 
-    1. Validates the input from the `entry` widget, ensuring it is a single digit (0-9). 
-       Displays an error message if the input is invalid.
+    1. Validates the input from the `entry` widget, ensuring it is a single digit (0-9).
     2. Processes the drawn image:
        - Resizes it to 28x28 pixels and converts it to grayscale.
        - Converts it to a NumPy array, normalizes pixel values to [0, 1], and inverts the colors.
@@ -51,10 +49,10 @@ def submit_data():
     3. Appends the processed image and the digit label to the training datasets (`train_x` and `train_y`).
     4. Clears the canvas and entry widget, resets the drawing surface, and saves the updated training data.
     '''
+
     if len(entry.get()) != 1:
         messagebox.showerror("Error", "The expected value is between 0 and 9.")
         return
-
     try:
         digit = int(entry.get())
     except ValueError:
@@ -62,10 +60,10 @@ def submit_data():
         return
 
     global drawn_image, train_x, train_y
-
     image = drawn_image.resize((28, 28)).convert('L')
     image_array = np.array(image) / 255.0
     image_array = 1.0 - image_array
+    
     train_x = np.append(train_x, [image_array], axis=0)
     train_y = np.append(train_y, [digit], axis=0)
 
