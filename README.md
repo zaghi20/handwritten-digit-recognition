@@ -29,7 +29,7 @@ To install the required packages, run:
 2. Draw a digit on the canvas.
 3. Enter the digit you just drew in the input box (between 0 and 9).
 4. Click "Submit Data" to save your drawing.
-5. Train the model by clicking "Train Model" (it is recomended to send all the digits and severa variations of each digit for better performance).
+5. Train the model by clicking "Train Model" (it is recomended to send all the digits and several variations of each digit for better performance).
 6. Once trained, click "Predict" to see the model's prediction of the digit you drew.
 
 ## How It Works
